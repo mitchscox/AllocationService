@@ -3,14 +3,16 @@ package org.AItest.backoffice.AllocationService.model;
 public class Allocation {
     private String tradeId;
     private String clientId;
+    private String instrument;
     private int bondQuantity;
 
     // Constructors
     public Allocation() {}
 
-    public Allocation(String tradeId, String clientId, int bondQuantity) {
+    public Allocation(String tradeId, String clientId, String instrument, int bondQuantity) {
         this.tradeId = tradeId;
         this.clientId = clientId;
+        this.instrument = instrument;
         this.bondQuantity = bondQuantity;
     }
 
@@ -31,6 +33,14 @@ public class Allocation {
         this.clientId = clientId;
     }
 
+    public String getInstrument() {
+        return instrument;
+    }
+
+    public void setInstrument(String instrument) {
+        this.instrument = instrument;
+    }
+
     public int getBondQuantity() {
         return bondQuantity;
     }
@@ -39,4 +49,3 @@ public class Allocation {
         this.bondQuantity = bondQuantity;
     }
 }
-
