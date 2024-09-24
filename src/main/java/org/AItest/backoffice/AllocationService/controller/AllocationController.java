@@ -15,15 +15,15 @@ public class AllocationController {
     @Autowired
     private AllocationService allocationService;
 
-    // Endpoint to allocate bonds
-    @PostMapping("/{tradeId}")
-    public String allocateBonds(@PathVariable String tradeId, @RequestBody List<Allocation> allocations) {
-        return allocationService.allocateBonds(tradeId, allocations);
+    // Endpoint to allocate bonds via FIX message
+    @PostMapping("/fix")
+    public String allocateBonds(@RequestBody String fixMessage) {
+        return allocationService.allocateBonds(fixMessage);
     }
 
     // Endpoint to retrieve allocations for a given tradeId
     @GetMapping("/{tradeId}")
-    public Map<String, Integer> getAllocation(@PathVariable String tradeId) {
+    public Map<String, Object> getAllocation(@PathVariable String tradeId) {
         return allocationService.getAllocation(tradeId);
     }
 }
